@@ -38,15 +38,18 @@ SELECT staff.first_name, staff.last_name, city.city, COUNT(customer.customer_id)
     HAVING COUNT(customer.customer_id) > 300;
 
 ```
-
-
 ![alt text](https://github.com/BudyGun/sql-2/blob/main/images/sq1.png)
 
 ### Задание 2
 
 Получите количество фильмов, продолжительность которых больше средней продолжительности всех фильмов.   
 
-### Решение 2
+### Решение 2   
+```
+SELECT COUNT(*) FROM film WHERE length > (SELECT AVG(length) FROM film);
+```
+![alt text](https://github.com/BudyGun/sql-2/blob/main/images/sq2.png)
+
 
 ### Задание 3
 
