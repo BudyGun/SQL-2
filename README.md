@@ -55,8 +55,17 @@ SELECT COUNT(*) FROM film WHERE length > (SELECT AVG(length) FROM film);
 
 Получите информацию, за какой месяц была получена наибольшая сумма платежей, и добавьте информацию по количеству аренд за этот месяц.   
 
-### Решение 3
-
+### Решение 3   
+```
+SELECT YEAR(payment_date) AS year, MONTH(payment_date) AS month,
+COUNT(DISTINCT rental.rental_id) as rental_count, SUM(amount) as total_payment
+FROM payment
+JOIN rental ON payment.rental_id = rental.rental_id
+GROUP BY year, month
+ORDER BY total_payment DESC
+LIMIT 1;
+```
+![alt text](https://github.com/BudyGun/sql-2/blob/main/images/sq3.png)
 
 ## Дополнительные задания (со звёздочкой*)
 Эти задания дополнительные, то есть не обязательные к выполнению, и никак не повлияют на получение вами зачёта по этому домашнему заданию. Вы можете их выполнить, если хотите глубже шире разобраться в материале.
