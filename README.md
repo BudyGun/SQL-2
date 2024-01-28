@@ -29,13 +29,13 @@
 ### Решение 1   
 ```
 SELECT staff.first_name, staff.last_name, city.city, COUNT(customer.customer_id) as total_customers
-    -> FROM staff
-    -> JOIN store ON staff.store_id = store.store_id
-    -> JOIN address ON store.address_id = address.address_id
-    -> JOIN city ON address.city_id = city.city_id
-    -> JOIN customer ON store.store_id = customer.store_id
-    -> GROUP BY staff.first_name, staff.last_name, city.city
-    -> HAVING COUNT(customer.customer_id) > 300;
+    FROM staff
+    JOIN store ON staff.store_id = store.store_id
+    JOIN address ON store.address_id = address.address_id
+    JOIN city ON address.city_id = city.city_id
+    JOIN customer ON store.store_id = customer.store_id
+    GROUP BY staff.first_name, staff.last_name, city.city
+    HAVING COUNT(customer.customer_id) > 300;
 
 ```
 
